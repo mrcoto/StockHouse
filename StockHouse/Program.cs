@@ -1,5 +1,7 @@
 ﻿using System;
 using StockHouse.Src;
+using StockHouse.Src.DB;
+using StockHouse.Src.Examples.Example1;
 
 namespace StockHouse
 {
@@ -7,8 +9,14 @@ namespace StockHouse
     {
         static void Main(string[] args)
         {
-            var helloWorld = new HelloWorld();
-            Console.WriteLine(helloWorld.Hello());
+            using(var context = new StockHouseContext())
+            {
+                var getProductByIdService = new GetProductByIdService(context);
+                var response = getProductByIdService.byId(1);
+                Console.WriteLine(response.AliasName);
+                Console.WriteLine(response.Name);
+                Console.WriteLine(response.HasComposition);
+            }
         }
     }
 }
