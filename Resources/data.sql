@@ -49,7 +49,8 @@ insert into product(alias_name, name, is_item) values
 ('printer', 'Printer', true), -- ID: 4
 ('pack1', 'Pack #1: 2 x Keyboard Gamer & Printer', false), -- ID: 5
 ('pack2', 'Pack #2: 3 x Generic Mouse', false), -- ID: 6
-('pack3', 'Pack #3: 2 x Pack #1 & Pack # 2 & 3 x Generic Keyboard', false) -- ID: 7
+('pack3', 'Pack #3: 2 x Pack #1 & Pack # 2 & 3 x Generic Keyboard', false), -- ID: 7
+('pack4', 'Pack #4: 3 x Pack #1 & 4 x Keyboard Gamer', false) -- ID: 8
 ;
 
 -- Warehouse has product
@@ -71,5 +72,7 @@ insert into product_has_product(product_id, product_content_id, quantity) values
 (6, 3, 3),
 (7, 5, 2),
 (7, 6, 1),
-(7, 2, 3)
+(7, 2, 3),
+(8, 5, 3),
+(8, 1, 4)
 ;
