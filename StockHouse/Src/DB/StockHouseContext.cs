@@ -15,6 +15,22 @@ namespace StockHouse.Src.DB
         });
 
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<ProductHasProduct> ProductHasProducts { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder
+                .Entity<ProductHasProduct>(php =>
+                {
+                    php.HasKey(php => new {php.ProductId, php.ProductContentId});
+                    php.HasOne(php => php.Product)
+                       .WithMany(p => p.ProductComposition)
+                       .HasForeignKey(php => php.ProductId);
+                    php.HasOne(php => php.ProductContent)
+                       .WithMany(p => p.ContainedIn)
+                       .HasForeignKey(php => php.ProductContentId);
+                });
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         { 
