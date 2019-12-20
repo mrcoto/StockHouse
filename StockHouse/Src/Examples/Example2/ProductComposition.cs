@@ -19,7 +19,7 @@ namespace StockHouse.Src.Examples.Example2
 
         public override String ToString()
         {
-            return $"ProductComposition(Id = {Id}, ParentId = {AliasName}, Name = {Name}, Quantity = {Quantity})";
+            return $"ProductComposition(Id = {Id}, AliasName = {AliasName}, Name = {Name}, Quantity = {Quantity})";
         }
 
     }
