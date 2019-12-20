@@ -22,6 +22,13 @@ namespace StockHouseTest.Src.Examples.Example2
         }
 
         [Fact]
+        public void Test_Should_Return_Empty_Composition_On_Non_Existing_Product()
+        {
+            var response = GetProductComposition(-1, 1);
+            Assert.Equal(0, response.Count);
+        }
+
+        [Fact]
         public void Test_Should_Return_Empty_Composition_With_Product_ID_1()
         {
             var response = GetProductComposition(1, 1);
