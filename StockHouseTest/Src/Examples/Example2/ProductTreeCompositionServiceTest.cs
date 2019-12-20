@@ -36,7 +36,7 @@ namespace StockHouseTest.Src.Examples.Example2
         }
 
         [Fact]
-        public void Test_Should_Return_Empty_Composition_With_Product_ID_7_And_Level_1()
+        public void Test_Should_Return_Composition_With_Product_ID_7_And_Level_1()
         {
             var response = GetProductComposition(7, 1);
             Assert.Equal(3, response.Count);
@@ -64,7 +64,7 @@ namespace StockHouseTest.Src.Examples.Example2
         }
 
         [Fact]
-        public void Test_Should_Return_Empty_Composition_With_Product_ID_7_And_Level_2()
+        public void Test_Should_Return_Composition_With_Product_ID_7_And_Level_2()
         {
             var response = GetProductComposition(7, 2);
             Assert.Equal(3, response.Count);
@@ -113,7 +113,7 @@ namespace StockHouseTest.Src.Examples.Example2
         }
 
         [Fact]
-        public void Test_Should_Return_Empty_Composition_With_Product_ID_7_And_Level_100()
+        public void Test_Should_Return_Composition_With_Product_ID_7_And_Level_100()
         {
             var response = GetProductComposition(7, 100);
             Assert.Equal(3, response.Count);
