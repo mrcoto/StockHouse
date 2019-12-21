@@ -1,7 +1,6 @@
 ﻿using System;
 using StockHouse.Src.DB;
-using StockHouse.Src.Examples.Example2;
-using StockHouse.Src.Examples.Example3;
+using StockHouse.Src.Examples.Example4;
 
 namespace StockHouse
 {
@@ -11,8 +10,8 @@ namespace StockHouse
         {
             using(var context = new StockHouseContext())
             {
-                var itemCompositionService = new ProductItemCompositionService(context);
-                var response = itemCompositionService.GetItems(8);
+                var getProductsBySearchTokenService = new GetProductsBySearchTokenService(context);
+                var response = getProductsBySearchTokenService.Search("game");
                 response.ForEach(c => Console.WriteLine(c));
             }
         }
