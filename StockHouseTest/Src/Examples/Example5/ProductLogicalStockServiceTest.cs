@@ -19,100 +19,26 @@ namespace StockHouseTest.Src.Examples.Example5
             Assert.Throws<InvalidOperationException>(() => GetProductStock(productId: 1, warehouseId: -1));
         }
 
-        [Fact]
-        public void Test_Should_Return_Physical_Stock_With_Warehouse_1_And_Product_1()
+        [Theory]
+        [InlineData(1, 1, 50)]
+        [InlineData(1, 2, 100)]
+        [InlineData(1, 3, 50)]
+        [InlineData(1, 4, 20)]
+        [InlineData(1, 5, 20)]
+        [InlineData(1, 6, 16)]
+        [InlineData(1, 7, 10)]
+        [InlineData(1, 8, 5)]
+        [InlineData(2, 1, 16)]
+        [InlineData(2, 2, 0)]
+        [InlineData(2, 3, 55)]
+        [InlineData(2, 4, 0)]
+        [InlineData(2, 5, 0)]
+        [InlineData(2, 6, 18)]
+        [InlineData(2, 7, 0)]
+        [InlineData(2, 8, 0)]
+        public void Test_Should_Return_Stock(int warehouseId, int productId, int stock)
         {
-            Assert.Equal(50, GetProductStock(productId: 1, warehouseId: 1));
-        }
-
-        [Fact]
-        public void Test_Should_Return_Physical_Stock_With_Warehouse_1_And_Product_2()
-        {
-            Assert.Equal(100, GetProductStock(productId: 2, warehouseId: 1));
-        }
-
-        [Fact]
-        public void Test_Should_Return_Physical_Stock_With_Warehouse_1_And_Product_3()
-        {
-            Assert.Equal(50, GetProductStock(productId: 3, warehouseId: 1));
-        }
-
-        [Fact]
-        public void Test_Should_Return_Physical_Stock_With_Warehouse_1_And_Product_4()
-        {
-            Assert.Equal(20, GetProductStock(productId: 4, warehouseId: 1));
-        }
-
-        [Fact]
-        public void Test_Should_Return_Logical_Stock_With_Warehouse_1_And_Product_5()
-        {
-            Assert.Equal(20, GetProductStock(productId: 5, warehouseId: 1));
-        }
-
-        [Fact]
-        public void Test_Should_Return_Logical_Stock_With_Warehouse_1_And_Product_6()
-        {
-            Assert.Equal(16, GetProductStock(productId: 6, warehouseId: 1));
-        }
-
-        [Fact]
-        public void Test_Should_Return_Logical_Stock_With_Warehouse_1_And_Product_7()
-        {
-            Assert.Equal(10, GetProductStock(productId: 7, warehouseId: 1));
-        }
-
-        [Fact]
-        public void Test_Should_Return_Logical_Stock_With_Warehouse_1_And_Product_8()
-        {
-            Assert.Equal(5, GetProductStock(productId: 8, warehouseId: 1));
-        }
-
-        [Fact]
-        public void Test_Should_Return_Physical_Stock_With_Warehouse_2_And_Product_1()
-        {
-            Assert.Equal(16, GetProductStock(productId: 1, warehouseId: 2));
-        }
-
-        [Fact]
-        public void Test_Should_Return_Physical_Stock_With_Warehouse_2_And_Product_2()
-        {
-            Assert.Equal(0, GetProductStock(productId: 2, warehouseId: 2));
-        }
-
-        [Fact]
-        public void Test_Should_Return_Physical_Stock_With_Warehouse_2_And_Product_3()
-        {
-            Assert.Equal(55, GetProductStock(productId: 3, warehouseId: 2));
-        }
-
-        [Fact]
-        public void Test_Should_Return_Physical_Stock_With_Warehouse_2_And_Product_4()
-        {
-            Assert.Equal(0, GetProductStock(productId: 4, warehouseId: 2));
-        }
-
-        [Fact]
-        public void Test_Should_Return_Logical_Stock_With_Warehouse_2_And_Product_5()
-        {
-            Assert.Equal(0, GetProductStock(productId: 5, warehouseId: 2));
-        }
-
-        [Fact]
-        public void Test_Should_Return_Logical_Stock_With_Warehouse_2_And_Product_6()
-        {
-            Assert.Equal(18, GetProductStock(productId: 6, warehouseId: 2));
-        }
-
-        [Fact]
-        public void Test_Should_Return_Logical_Stock_With_Warehouse_2_And_Product_7()
-        {
-            Assert.Equal(0, GetProductStock(productId: 7, warehouseId: 2));
-        }
-
-        [Fact]
-        public void Test_Should_Return_Logical_Stock_With_Warehouse_2_And_Product_8()
-        {
-            Assert.Equal(0, GetProductStock(productId: 8, warehouseId: 2));
+            Assert.Equal(stock, GetProductStock(productId, warehouseId));
         }
 
         private int GetProductStock(int productId, int warehouseId)
