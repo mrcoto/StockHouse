@@ -16,6 +16,8 @@ namespace StockHouse.Src.DB
 
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductHasProduct> ProductHasProducts { get; set; }
+        public virtual DbSet<Warehouse> Warehouses { get; set; }
+        public virtual DbSet<WarehouseHasProduct> WarehouseHasProducts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -29,6 +31,11 @@ namespace StockHouse.Src.DB
                     php.HasOne(php => php.ProductContent)
                        .WithMany(p => p.ContainedIn)
                        .HasForeignKey(php => php.ProductContentId);
+                });
+            modelBuilder
+                .Entity<WarehouseHasProduct>(whp => 
+                {
+                    whp.HasKey(whp => new {whp.WarehouseId, whp.ProductId});
                 });
         }
 
