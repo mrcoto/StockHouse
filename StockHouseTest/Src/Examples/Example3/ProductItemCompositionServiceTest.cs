@@ -13,14 +13,14 @@ namespace StockHouseTest.Src.Examples.Example3
         public void Test_Should_Return_Empty_Composition_On_Non_Existing_Product()
         {
             var response = GetItemComposition(-1);
-            Assert.Equal(0, response.Count);
+            Assert.Empty(response);
         }
 
         [Fact]
         public void Test_Should_Return_Empty_Composition_With_Product_ID_1()
         {
             var response = GetItemComposition(1);
-            Assert.Equal(0, response.Count);
+            Assert.Empty(response);
         }
 
         [Fact]

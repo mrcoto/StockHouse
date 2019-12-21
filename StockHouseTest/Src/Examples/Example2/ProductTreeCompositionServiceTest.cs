@@ -25,14 +25,14 @@ namespace StockHouseTest.Src.Examples.Example2
         public void Test_Should_Return_Empty_Composition_On_Non_Existing_Product()
         {
             var response = GetProductComposition(-1, 1);
-            Assert.Equal(0, response.Count);
+            Assert.Empty(response);
         }
 
         [Fact]
         public void Test_Should_Return_Empty_Composition_With_Product_ID_1()
         {
             var response = GetProductComposition(1, 1);
-            Assert.Equal(0, response.Count);
+            Assert.Empty(response);
         }
 
         [Fact]
@@ -46,21 +46,21 @@ namespace StockHouseTest.Src.Examples.Example2
             Assert.Equal("pack1", composition.AliasName);     
             Assert.Equal("Pack #1: 2 x Keyboard Gamer & Printer", composition.Name);            
             Assert.Equal(2, composition.Quantity);            
-            Assert.Equal(0, composition.Composition.Count);    
+            Assert.Empty(composition.Composition);    
 
             composition = FindProductCompositionById(6, response);
             Assert.Equal(6, composition.Id);            
             Assert.Equal("pack2", composition.AliasName);            
             Assert.Equal("Pack #2: 3 x Generic Mouse", composition.Name);            
             Assert.Equal(1, composition.Quantity);            
-            Assert.Equal(0, composition.Composition.Count);
+            Assert.Empty(composition.Composition);
 
             composition = FindProductCompositionById(2, response);
             Assert.Equal(2, composition.Id);            
             Assert.Equal("keyboard", composition.AliasName);            
             Assert.Equal("Generic Keyboard", composition.Name);            
             Assert.Equal(3, composition.Quantity);            
-            Assert.Equal(0, composition.Composition.Count);              
+            Assert.Empty(composition.Composition);              
         }
 
         [Fact]
@@ -81,35 +81,35 @@ namespace StockHouseTest.Src.Examples.Example2
             Assert.Equal("keyboardgamer", childComposition.AliasName);            
             Assert.Equal("Corsair K95 RGB Platinum", childComposition.Name);            
             Assert.Equal(2, childComposition.Quantity);            
-            Assert.Equal(0, childComposition.Composition.Count);   
+            Assert.Empty(childComposition.Composition);   
 
             childComposition = FindProductCompositionById(4, composition.Composition);
             Assert.Equal(4, childComposition.Id);            
             Assert.Equal("printer", childComposition.AliasName);            
             Assert.Equal("Printer", childComposition.Name);            
             Assert.Equal(1, childComposition.Quantity);            
-            Assert.Equal(0, childComposition.Composition.Count); 
+            Assert.Empty(childComposition.Composition); 
 
             composition = FindProductCompositionById(6, response);
             Assert.Equal(6, composition.Id);            
             Assert.Equal("pack2", composition.AliasName);            
             Assert.Equal("Pack #2: 3 x Generic Mouse", composition.Name);            
             Assert.Equal(1, composition.Quantity);            
-            Assert.Equal(1, composition.Composition.Count);
+            Assert.Single(composition.Composition);
 
             childComposition = FindProductCompositionById(3, composition.Composition);
             Assert.Equal(3, childComposition.Id);            
             Assert.Equal("mouse", childComposition.AliasName);            
             Assert.Equal("Generic Mouse", childComposition.Name);            
             Assert.Equal(3, childComposition.Quantity);            
-            Assert.Equal(0, childComposition.Composition.Count);  
+            Assert.Empty(childComposition.Composition);  
 
             composition = FindProductCompositionById(2, response);
             Assert.Equal(2, composition.Id);            
             Assert.Equal("keyboard", composition.AliasName);            
             Assert.Equal("Generic Keyboard", composition.Name);            
             Assert.Equal(3, composition.Quantity);            
-            Assert.Equal(0, composition.Composition.Count);
+            Assert.Empty(composition.Composition);
         }
 
         [Fact]
@@ -130,35 +130,35 @@ namespace StockHouseTest.Src.Examples.Example2
             Assert.Equal("keyboardgamer", childComposition.AliasName);            
             Assert.Equal("Corsair K95 RGB Platinum", childComposition.Name);            
             Assert.Equal(2, childComposition.Quantity);            
-            Assert.Equal(0, childComposition.Composition.Count);   
+            Assert.Empty(childComposition.Composition);   
 
             childComposition = FindProductCompositionById(4, composition.Composition);
             Assert.Equal(4, childComposition.Id);            
             Assert.Equal("printer", childComposition.AliasName);            
             Assert.Equal("Printer", childComposition.Name);            
             Assert.Equal(1, childComposition.Quantity);            
-            Assert.Equal(0, childComposition.Composition.Count); 
+            Assert.Empty(childComposition.Composition); 
 
             composition = FindProductCompositionById(6, response);
             Assert.Equal(6, composition.Id);            
             Assert.Equal("pack2", composition.AliasName);            
             Assert.Equal("Pack #2: 3 x Generic Mouse", composition.Name);            
             Assert.Equal(1, composition.Quantity);            
-            Assert.Equal(1, composition.Composition.Count);
+            Assert.Single(composition.Composition);
 
             childComposition = FindProductCompositionById(3, composition.Composition);
             Assert.Equal(3, childComposition.Id);            
             Assert.Equal("mouse", childComposition.AliasName);            
             Assert.Equal("Generic Mouse", childComposition.Name);            
             Assert.Equal(3, childComposition.Quantity);            
-            Assert.Equal(0, childComposition.Composition.Count);  
+            Assert.Empty(childComposition.Composition);  
 
             composition = FindProductCompositionById(2, response);
             Assert.Equal(2, composition.Id);            
             Assert.Equal("keyboard", composition.AliasName);            
             Assert.Equal("Generic Keyboard", composition.Name);            
             Assert.Equal(3, composition.Quantity);            
-            Assert.Equal(0, composition.Composition.Count);             
+            Assert.Empty(composition.Composition);             
         }
 
         private ProductComposition FindProductCompositionById(int id, List<ProductComposition> list)

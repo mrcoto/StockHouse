@@ -20,7 +20,7 @@ namespace StockHouseTest.Src.Examples.Example1
             var response = GetProductById(1);
             Assert.Equal("keyboardgamer", response.AliasName);
             Assert.Equal("Corsair K95 RGB Platinum", response.Name);
-            Assert.Equal(false, response.HasComposition);
+            Assert.False(response.HasComposition);
         }
 
         [Fact]
@@ -29,7 +29,7 @@ namespace StockHouseTest.Src.Examples.Example1
             var response = GetProductById(6);
             Assert.Equal("pack2", response.AliasName);
             Assert.Equal("Pack #2: 3 x Generic Mouse", response.Name);
-            Assert.Equal(true, response.HasComposition);
+            Assert.True(response.HasComposition);
         }
 
         private ProductDataDto GetProductById(int id)

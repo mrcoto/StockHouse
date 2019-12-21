@@ -13,7 +13,7 @@ namespace StockHouseTest.Src.Examples.Example4
         public void Test_Should_Return_Empty_On_Non_Match_Products()
         {
             var response = GetProductsBySearchToken("non handled search token");
-            Assert.Equal(0, response.Count);
+            Assert.Empty(response);
         }
 
         [Fact]
