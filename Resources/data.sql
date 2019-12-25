@@ -50,7 +50,7 @@ insert into product(alias_name, name, is_item) values
 ('pack1', 'Pack #1: 2 x Keyboard Gamer & Printer', false), -- ID: 5
 ('pack2', 'Pack #2: 3 x Generic Mouse', false), -- ID: 6
 ('pack3', 'Pack #3: 2 x Pack #1 & Pack # 2 & 3 x Generic Keyboard', false), -- ID: 7
-('pack4', 'Pack #4: 3 x Pack #1 & 4 x Keyboard Gamer', false) -- ID: 8
+('pack4', 'Pack #4: 3 x Pack #1 & 4 x Keyboard Gamer', false), -- ID: 8
 ('pack5', 'Pack #5: 4 x Pack #4 & 2 x Pack #3', false) -- ID: 9
 ;
 

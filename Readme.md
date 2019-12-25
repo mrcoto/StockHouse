@@ -26,6 +26,8 @@ with `*` the index number.
 
 - PostgreSQL 9.6+ and database created. Default database name: ```stock_house```, username: ```postgres``` and password: ```secret```.
 
+- Update database with ```dotnet ef database update --project StockHouse}``` command.
+
 ## Run Main application
 
 ```bash
@@ -36,4 +38,18 @@ dotnet run --project StockHouse
 
 ```bash
 dotnet test
+```
+
+## Anexo
+
+### Añadir Migración
+
+```bash
+dotnet ef migrations add SchemaCreation --project StockHouse
+```
+
+### Ejecutar migraciones
+
+```bash
+dotnet ef database update --project StockHouse
 ```
