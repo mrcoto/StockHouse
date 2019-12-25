@@ -21,3 +21,19 @@ a Printer and two Keyboards is a **non-item product**
 
 The **examples** are stored in ```StockHouse/Examples/Example*``` folder
 with `*` the index number.
+
+## Prerequisites
+
+- PostgreSQL 9.6+ and database created. Default database name: ```stock_house```, username: ```postgres``` and password: ```secret```.
+
+## Run Main application
+
+```bash
+dotnet run --project StockHouse
+```
+
+## Run Test
+
+```bash
+dotnet test
+```
