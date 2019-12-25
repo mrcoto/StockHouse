@@ -31,7 +31,7 @@ namespace StockHouseTest.Src.Examples.Example4
         public void Test_Should_Return_All_Products_Composition_With_Empty_Search_Token()
         {
             var response = GetProductsBySearchToken("");
-            Assert.Equal(8, response.Count);
+            Assert.Equal(9, response.Count);
 
             Assert.True(IsIdInProductInfoList(1, response));
             Assert.True(IsIdInProductInfoList(2, response));

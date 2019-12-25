@@ -51,6 +51,7 @@ insert into product(alias_name, name, is_item) values
 ('pack2', 'Pack #2: 3 x Generic Mouse', false), -- ID: 6
 ('pack3', 'Pack #3: 2 x Pack #1 & Pack # 2 & 3 x Generic Keyboard', false), -- ID: 7
 ('pack4', 'Pack #4: 3 x Pack #1 & 4 x Keyboard Gamer', false) -- ID: 8
+('pack5', 'Pack #5: 4 x Pack #4 & 2 x Pack #3', false) -- ID: 9
 ;
 
 -- Warehouse has product
@@ -74,5 +75,7 @@ insert into product_has_product(product_id, product_content_id, quantity) values
 (7, 6, 1),
 (7, 2, 3),
 (8, 5, 3),
-(8, 1, 4)
+(8, 1, 4),
+(9, 8, 4),
+(9, 7, 2)
 ;

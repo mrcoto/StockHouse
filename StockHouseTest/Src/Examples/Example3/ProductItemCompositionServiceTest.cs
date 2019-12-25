@@ -73,6 +73,37 @@ namespace StockHouseTest.Src.Examples.Example3
             Assert.Equal(3, composition.Quantity);
         }
 
+        [Fact]
+        public void Test_Should_Return_Item_Composition_With_Product_ID_9()
+        {
+            var response = GetItemComposition(9);
+            Assert.Equal(4, response.Count);
+
+            var composition = FindItemCompositionById(1, response);
+            Assert.Equal(1, composition.Id);
+            Assert.Equal("keyboardgamer", composition.AliasName);
+            Assert.Equal("Corsair K95 RGB Platinum", composition.Name);
+            Assert.Equal(48, composition.Quantity);
+
+            composition = FindItemCompositionById(4, response);
+            Assert.Equal(4, composition.Id);
+            Assert.Equal("printer", composition.AliasName);
+            Assert.Equal("Printer", composition.Name);
+            Assert.Equal(16, composition.Quantity);
+
+            composition = FindItemCompositionById(3, response);
+            Assert.Equal(3, composition.Id);
+            Assert.Equal("mouse", composition.AliasName);
+            Assert.Equal("Generic Mouse", composition.Name);
+            Assert.Equal(6, composition.Quantity);
+
+            composition = FindItemCompositionById(2, response);
+            Assert.Equal(2, composition.Id);
+            Assert.Equal("keyboard", composition.AliasName);
+            Assert.Equal("Generic Keyboard", composition.Name);
+            Assert.Equal(6, composition.Quantity);
+        }
+
         private ItemComposition FindItemCompositionById(int id, List<ItemComposition> list)
         {
             return list.Find(e => e.Id == id);
