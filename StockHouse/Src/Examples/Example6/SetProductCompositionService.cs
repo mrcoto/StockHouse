@@ -6,10 +6,41 @@ using StockHouse.Src.Models;
 
 namespace StockHouse.Src.Examples.Example6
 {
+    /// <summary>
+    /// This service assigns a new composition to a specific product.
+    /// </summary>
     public class SetProductCompositionService : StockHouseService
     {
+        /// <summary>
+        /// Initialize service with a reference to a database context
+        /// </summary>
+        /// <param name="_context">Database context</param>
+        /// <returns></returns>
         public SetProductCompositionService(StockHouseContext _context) : base(_context) { }
 
+        /// <summary>
+        /// Set the new content <c>contents</c> for product with ID <c>id</c>.
+        /// <para>
+        ///  Exceptions:
+        /// <exception cref="StockHouse.Src.Examples.Example6.Exceptions.NonExistingProductsException">
+        ///     Thrown when one or more product's id of the content doesn't exists in database.
+        /// </exception>
+        /// <exception cref="StockHouse.Src.Examples.Example6.Exceptions.NonPositiveQuantityException">
+        ///     Thrown when any quantity of the new content is negative or zero.
+        /// </exception>
+        /// <exception cref="StockHouse.Src.Examples.Example6.Exceptions.CompositionLoopException">
+        ///     Thrown when any product of the new content generates a composition loop.
+        ///     For example, If product A contains product B, and product B contains product C, then
+        ///     product C can't contains product A, or product C can't contains product B,
+        ///     or product C can't contains product C.
+        /// </exception>
+        /// </para>
+        /// </summary>
+        /// <para>
+        /// Params:
+        /// <param name="id">ID of the product to set the new content</param>
+        /// <param name="contents">The new content of the product</param>
+        /// </para>
         public void SetComposition(int id, List<ProductContent> contents)
         {
             var product = GetProduct(id);

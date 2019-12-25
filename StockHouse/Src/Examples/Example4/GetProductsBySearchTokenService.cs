@@ -6,10 +6,22 @@ using StockHouse.Src.DB;
 
 namespace StockHouse.Src.Examples.Example4
 {
+    /// <summary>
+    /// Retrieve Products by alias name or name.
+    /// </summary>
     public class GetProductsBySearchTokenService : StockHouseService
     {
+        /// <summary>
+        /// GetProductsBySearchTokenService constructor
+        /// </summary>
+        /// <param name="_context">Database context</param>
         public GetProductsBySearchTokenService(StockHouseContext _context) : base(_context) {}
 
+        /// <summary>
+        /// All products where alias name or name match <c>searchToken</c>.
+        /// </summary>
+        /// <param name="searchToken">Token to search for</param>
+        /// <returns>List of matched products</returns>
         public List<ProductInfo> Search(String searchToken)
         {
             var query = _context.Products.Select(p => new ProductInfo()

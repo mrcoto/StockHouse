@@ -7,16 +7,30 @@ using StockHouse.Src.Models;
 
 namespace StockHouse.Src.Examples.Example5
 {
+    /// <summary>
+    /// Return the logical or physical stock of a product in a specific warehouse.
+    /// </summary>
     public class ProductLogicalStockService : StockHouseService
     {
 
         private ProductItemCompositionService productItemCompositionService;
 
+        /// <summary>
+        /// ProductLogicalStockService constructor.
+        /// </summary>
+        /// <param name="_context">Database context</param>
+        /// <returns></returns>
         public ProductLogicalStockService(StockHouseContext _context) : base(_context) 
         {
             this.productItemCompositionService = new ProductItemCompositionService(_context);
         }
 
+        /// <summary>
+        /// Get the physicial stock if product is item, or the logical stock if product is non-item.
+        /// </summary>
+        /// <param name="productId">Product id</param>
+        /// <param name="warehouseId">Warehouse id</param>
+        /// <returns>Logical or Physical stock</returns>
         public int GetStock(int productId, int warehouseId)
         {
             var product = GetProduct(productId);
